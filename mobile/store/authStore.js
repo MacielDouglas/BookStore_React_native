@@ -10,17 +10,20 @@ export const useAuthStore = create((set) => ({
     set({ isLoading: true });
 
     try {
-      const response = await fetch("http://10.0.2.2:3000/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          email,
-          password,
-        }),
-      });
+      const response = await fetch(
+        "https://bookstore-react-native.onrender.com/api/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            email,
+            password,
+          }),
+        }
+      );
 
       const data = await response.json();
 
